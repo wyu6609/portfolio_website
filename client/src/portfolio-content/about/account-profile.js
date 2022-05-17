@@ -10,7 +10,8 @@ import {
 } from "@mui/material";
 
 const user = {
-  avatar: "../../images/avatar.png",
+  avatar:
+    "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/avatar.png?raw=true",
   city: "Brooklyn NY,",
   country: "USA",
   jobTitle: "Senior Developer",
@@ -26,10 +27,12 @@ export const AccountProfile = (props) => (
           alignItems: "center",
           display: "flex",
           flexDirection: "column",
+          pb: 9,
+          elevation: 7,
         }}
       >
         <Avatar
-          src="https://willyu.netlify.app/assets/img/avatar.png"
+          src={user.avatar}
           sx={{
             height: 240,
             mb: 4.4,
@@ -37,7 +40,7 @@ export const AccountProfile = (props) => (
             backgroundColor: "#ccc",
           }}
         />
-        <Typography color="textPrimary" gutterBottom variant="h5">
+        <Typography color="textPrimary" gutterBottom variant="h4">
           {user.name}
         </Typography>
         <Typography color="textSecondary" variant="body2">
@@ -47,10 +50,10 @@ export const AccountProfile = (props) => (
           {user.timezone}
         </Typography>
       </Box>
-      <Divider />
+      {/* <Divider />
       <CardActions sx={{ justifyContent: "center" }}>
         <Typography>Fullstack Developer</Typography>
-      </CardActions>
+      </CardActions> */}
     </CardContent>
     <Divider />
   </Card>
