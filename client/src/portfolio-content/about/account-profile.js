@@ -38,7 +38,7 @@ export const AccountProfile = (props) => (
             backgroundColor: "#ccc",
           }}
         />
-        <Typography color="textPrimary" gutterBottom variant="h5">
+        <Typography color="textPrimary" gutterBottom variant="h4">
           {user.name}
         </Typography>
         <Typography color="textSecondary" variant="body2">

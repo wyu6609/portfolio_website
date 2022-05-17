@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Box,
   Button,
@@ -50,7 +51,12 @@ export const AccountProfileDetails = (props) => {
           p: 2,
         }}
       >
-        <Button color="primary" variant="contained">
+        <Button
+          component={Link}
+          to="/projects"
+          color="primary"
+          variant="contained"
+        >
           Go to projects!
         </Button>
       </Box>

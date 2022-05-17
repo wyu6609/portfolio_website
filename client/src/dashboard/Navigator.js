@@ -105,7 +105,12 @@ export default function Navigator(props) {
     <Drawer variant="permanent" {...other}>
       <List sx={{ mt: 4 }} disablePadding>
         <ListItem
-          sx={{ ...item, ...itemCategory, fontSize: 28, color: "#fff" }}
+          sx={{
+            ...item,
+            ...itemCategory,
+            fontSize: 28,
+            color: "#fff",
+          }}
         >
           WILLIAM YU
         </ListItem>
