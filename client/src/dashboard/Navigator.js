@@ -67,14 +67,14 @@ const itemCategory = {
 
 export default function Navigator(props) {
   const { ...other } = props;
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
   };
   return (
     <Drawer variant="permanent" {...other}>
-      <List disablePadding>
+      <List sx={{ mt: 4 }} disablePadding>
         <ListItem
           sx={{ ...item, ...itemCategory, fontSize: 28, color: "#fff" }}
         >

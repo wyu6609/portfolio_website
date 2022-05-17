@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Routes, Route } from "react-router-dom";
 import Paper from "@mui/material/Paper";
-import Bio from "../portfolio-content/Bio";
+import Bio from "../portfolio-content/about/Bio";
 import Projects from "../portfolio-content/Projects";
 import Contact from "../portfolio-content/Contact";
 import Login from "../portfolio-content/Login";
