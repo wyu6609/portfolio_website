@@ -56,6 +56,9 @@ export const AccountProfileDetails = (props) => {
           to="/projects"
           color="primary"
           variant="contained"
+          onClick={() => {
+            props.setSelectedIndex(1);
+          }}
         >
           Go to projects!
         </Button>

@@ -4,7 +4,7 @@ import { AccountProfile } from "./account-profile";
 import { AccountProfileDetails } from "./account-profile-details";
 import "./Bio.css";
 
-const Account = () => (
+const Bio = ({ setSelectedIndex }) => (
   <>
     <Head>
       <title>Account | Material Kit</title>
@@ -22,7 +22,7 @@ const Account = () => (
             <AccountProfile />
           </Grid>
           <Grid item lg={8} md={6} xs={12}>
-            <AccountProfileDetails />
+            <AccountProfileDetails setSelectedIndex={setSelectedIndex} />
           </Grid>
         </Grid>
       </Container>
@@ -30,4 +30,4 @@ const Account = () => (
   </>
 );
 
-export default Account;
+export default Bio;

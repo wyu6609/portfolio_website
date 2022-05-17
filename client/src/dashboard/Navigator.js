@@ -68,38 +68,37 @@ const itemCategory = {
 export default function Navigator(props) {
   let location = useLocation();
   const { ...other } = props;
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
 
-  React.useEffect(() => {
-    console.log(location.pathname);
-    switch (location.pathname) {
-      case "/":
-        console.log("you're in home");
-        setSelectedIndex(0);
-        break;
-      case "/projects":
-        console.log("you're in home");
-        setSelectedIndex(1);
-        break;
-      case "/resume":
-        console.log("you're in home");
-        setSelectedIndex(2);
-        break;
-      case "/contact":
-        console.log("you're in home");
-        setSelectedIndex(3);
-        break;
-      case "/login":
-        console.log("you're in home");
-        setSelectedIndex(4);
-        break;
-      default:
-        setSelectedIndex(false);
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   console.log(location.pathname);
+  //   switch (location.pathname) {
+  //     case "/":
+  //       console.log("you're in home");
+  //       setSelectedIndex(0);
+  //       break;
+  //     case "/projects":
+  //       console.log("you're in home");
+  //       setSelectedIndex(1);
+  //       break;
+  //     case "/resume":
+  //       console.log("you're in home");
+  //       setSelectedIndex(2);
+  //       break;
+  //     case "/contact":
+  //       console.log("you're in home");
+  //       setSelectedIndex(3);
+  //       break;
+  //     case "/login":
+  //       console.log("you're in home");
+  //       setSelectedIndex(4);
+  //       break;
+  //     default:
+  //       setSelectedIndex(false);
+  //   }
+  // }, []);
 
   const handleListItemClick = (event, index) => {
-    setSelectedIndex(index);
+    props.setSelectedIndex(index);
   };
   return (
     <Drawer variant="permanent" {...other}>
@@ -125,7 +124,7 @@ export default function Navigator(props) {
                 <ListItemButton
                   component={Link}
                   to={route}
-                  selected={selectedIndex === index}
+                  selected={props.selectedIndex === index}
                   onClick={(event) => handleListItemClick(event, index)}
                   sx={item}
                 >

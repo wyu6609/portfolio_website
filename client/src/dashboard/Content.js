@@ -8,11 +8,11 @@ import Login from "../portfolio-content/Login";
 import Resume from "../portfolio-content/Resume";
 import Error from "../portfolio-content/Error";
 
-export default function Content() {
+export default function Content({ setSelectedIndex }) {
   return (
     <Paper sx={{ maxWidth: 936, margin: "auto", overflow: "hidden" }}>
       <Routes>
-        <Route path="/" element={<Bio />} />
+        <Route path="/" element={<Bio setSelectedIndex />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/login" element={<Login />} />

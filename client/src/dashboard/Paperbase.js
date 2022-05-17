@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useLocation } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -167,9 +168,37 @@ theme = {
 const drawerWidth = 256;
 
 export default function Paperbase() {
+  const location = useLocation();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const isSmUp = useMediaQuery(theme.breakpoints.up("sm"));
-
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  React.useEffect(() => {
+    console.log(location.pathname);
+    switch (location.pathname) {
+      case "/":
+        console.log("you're in home");
+        setSelectedIndex(0);
+        break;
+      case "/projects":
+        console.log("you're in home");
+        setSelectedIndex(1);
+        break;
+      case "/resume":
+        console.log("you're in home");
+        setSelectedIndex(2);
+        break;
+      case "/contact":
+        console.log("you're in home");
+        setSelectedIndex(3);
+        break;
+      case "/login":
+        console.log("you're in home");
+        setSelectedIndex(4);
+        break;
+      default:
+        setSelectedIndex(false);
+    }
+  }, []);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -188,12 +217,16 @@ export default function Paperbase() {
               variant="temporary"
               open={mobileOpen}
               onClose={handleDrawerToggle}
+              selectedIndex={selectedIndex}
+              setSelectedIndex={setSelectedIndex}
             />
           )}
 
           <Navigator
             PaperProps={{ style: { width: drawerWidth } }}
             sx={{ display: { sm: "block", xs: "none" } }}
+            selectedIndex={selectedIndex}
+            setSelectedIndex={setSelectedIndex}
           />
         </Box>
         <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
@@ -202,7 +235,7 @@ export default function Paperbase() {
             component="main"
             sx={{ flex: 1, py: 6, px: 4, bgcolor: "#eaeff1" }}
           >
-            <Content />
+            <Content setSelectedIndex={setSelectedIndex} />
           </Box>
           <Box component="footer" sx={{ p: 2, bgcolor: "#eaeff1" }}>
             <Copyright />
