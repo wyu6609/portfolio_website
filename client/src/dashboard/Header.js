@@ -68,7 +68,7 @@ function Header(props) {
                 variant="h5"
                 component="h1"
               >
-                Welcome to My Portfolio Website!
+                Welcome to my porfolio site!
               </Typography>
             </Grid>
           </Grid>

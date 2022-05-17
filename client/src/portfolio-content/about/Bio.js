@@ -4,7 +4,7 @@ import { AccountProfile } from "./account-profile";
 import { AccountProfileDetails } from "./account-profile-details";
 import "./Bio.css";
 
-const Account = ({ setSelectedIndex }) => (
+const Account = () => (
   <>
     <Head>
       <title>Account | Material Kit</title>
@@ -22,7 +22,7 @@ const Account = ({ setSelectedIndex }) => (
             <AccountProfile />
           </Grid>
           <Grid item lg={8} md={6} xs={12}>
-            <AccountProfileDetails setSelectedIndex={setSelectedIndex} />
+            <AccountProfileDetails />
           </Grid>
         </Grid>
       </Container>

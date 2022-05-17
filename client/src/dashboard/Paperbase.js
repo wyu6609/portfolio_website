@@ -169,7 +169,7 @@ const drawerWidth = 256;
 export default function Paperbase() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const isSmUp = useMediaQuery(theme.breakpoints.up("sm"));
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -192,8 +192,6 @@ export default function Paperbase() {
           )}
 
           <Navigator
-            selectedIndex={selectedIndex}
-            setSelectedIndex={setSelectedIndex}
             PaperProps={{ style: { width: drawerWidth } }}
             sx={{ display: { sm: "block", xs: "none" } }}
           />
@@ -204,7 +202,7 @@ export default function Paperbase() {
             component="main"
             sx={{ flex: 1, py: 6, px: 4, bgcolor: "#eaeff1" }}
           >
-            <Content setSelectedIndex={setSelectedIndex} />
+            <Content />
           </Box>
           <Box component="footer" sx={{ p: 2, bgcolor: "#eaeff1" }}>
             <Copyright />
