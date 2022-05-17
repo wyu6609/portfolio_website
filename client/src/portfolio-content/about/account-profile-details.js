@@ -42,7 +42,7 @@ export const AccountProfileDetails = (props) => {
           </Grid>
         </Grid>
       </CardContent>
-      <Divider />
+
       <Box
         sx={{
           display: "flex",

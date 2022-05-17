@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -8,43 +8,43 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import HomeIcon from "@mui/icons-material/Home";
-import PeopleIcon from "@mui/icons-material/People";
-import DnsRoundedIcon from "@mui/icons-material/DnsRounded";
-import PermMediaOutlinedIcon from "@mui/icons-material/PhotoSizeSelectActual";
+import ArticleIcon from "@mui/icons-material/Article";
+import CottageIcon from "@mui/icons-material/Cottage";
+import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import PublicIcon from "@mui/icons-material/Public";
 import SettingsEthernetIcon from "@mui/icons-material/SettingsEthernet";
-import SettingsInputComponentIcon from "@mui/icons-material/SettingsInputComponent";
-import TimerIcon from "@mui/icons-material/Timer";
-import SettingsIcon from "@mui/icons-material/Settings";
-import PhonelinkSetupIcon from "@mui/icons-material/PhonelinkSetup";
 
 const categories = [
   {
     id: "Menu",
     children: [
       {
-        id: "ABOUT",
+        id: "HOME",
         menuIndex: 0,
-        icon: <DnsRoundedIcon />,
+        icon: <CottageIcon />,
         route: "/",
       },
       {
         id: "PROJECTS",
         menuIndex: 1,
-        icon: <PeopleIcon />,
+        icon: <SettingsEthernetIcon />,
         route: "/projects",
       },
 
       {
         id: "RESUME",
         menuIndex: 2,
-        icon: <DnsRoundedIcon />,
+        icon: <ArticleIcon />,
         route: "/resume",
       },
+      {
+        id: "CONTACT",
+        menuIndex: 3,
+        icon: <ConnectWithoutContactIcon />,
+        route: "/contact",
+      },
+      { id: "LOGIN", menuIndex: 4, icon: <PublicIcon />, route: "/login" },
 
-      { id: "LOGIN", menuIndex: 3, icon: <PublicIcon />, route: "/login" },
-      { id: "CONTACT", icon: <SettingsEthernetIcon />, route: "/contact" },
       ,
     ],
   },
@@ -66,8 +66,37 @@ const itemCategory = {
 };
 
 export default function Navigator(props) {
+  let location = useLocation();
   const { ...other } = props;
   const [selectedIndex, setSelectedIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    console.log(location.pathname);
+    switch (location.pathname) {
+      case "/":
+        console.log("you're in home");
+        setSelectedIndex(0);
+        break;
+      case "/projects":
+        console.log("you're in home");
+        setSelectedIndex(1);
+        break;
+      case "/resume":
+        console.log("you're in home");
+        setSelectedIndex(2);
+        break;
+      case "/contact":
+        console.log("you're in home");
+        setSelectedIndex(3);
+        break;
+      case "/login":
+        console.log("you're in home");
+        setSelectedIndex(4);
+        break;
+      default:
+        setSelectedIndex(false);
+    }
+  }, []);
 
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
