@@ -25,11 +25,12 @@ export const AccountProfile = (props) => (
         sx={{
           alignItems: "center",
           display: "flex",
+          pb: 9,
           flexDirection: "column",
         }}
       >
         <Avatar
-          src="https://willyu.netlify.app/assets/img/avatar.png"
+          src="https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/avatar.png?raw=true"
           sx={{
             height: 240,
             mb: 4.4,
@@ -47,10 +48,6 @@ export const AccountProfile = (props) => (
           {user.timezone}
         </Typography>
       </Box>
-      <Divider />
-      <CardActions sx={{ justifyContent: "center" }}>
-        <Typography>Fullstack Developer</Typography>
-      </CardActions>
     </CardContent>
     <Divider />
   </Card>
