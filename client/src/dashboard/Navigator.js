@@ -13,7 +13,7 @@ import CottageIcon from "@mui/icons-material/Cottage";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import PublicIcon from "@mui/icons-material/Public";
 import SettingsEthernetIcon from "@mui/icons-material/SettingsEthernet";
-
+import { toast } from "react-toastify";
 const categories = [
   {
     id: "Menu",
@@ -43,8 +43,7 @@ const categories = [
         icon: <ConnectWithoutContactIcon />,
         route: "/contact",
       },
-      { id: "LOGIN", menuIndex: 4, icon: <PublicIcon />, route: "/login" },
-
+      // { id: "LOGIN", menuIndex: 4, icon: <PublicIcon />, route: "/login" },
       ,
     ],
   },
@@ -68,34 +67,6 @@ const itemCategory = {
 export default function Navigator(props) {
   let location = useLocation();
   const { ...other } = props;
-
-  // React.useEffect(() => {
-  //   console.log(location.pathname);
-  //   switch (location.pathname) {
-  //     case "/":
-  //       console.log("you're in home");
-  //       setSelectedIndex(0);
-  //       break;
-  //     case "/projects":
-  //       console.log("you're in home");
-  //       setSelectedIndex(1);
-  //       break;
-  //     case "/resume":
-  //       console.log("you're in home");
-  //       setSelectedIndex(2);
-  //       break;
-  //     case "/contact":
-  //       console.log("you're in home");
-  //       setSelectedIndex(3);
-  //       break;
-  //     case "/login":
-  //       console.log("you're in home");
-  //       setSelectedIndex(4);
-  //       break;
-  //     default:
-  //       setSelectedIndex(false);
-  //   }
-  // }, []);
 
   const handleListItemClick = (event, index) => {
     props.setSelectedIndex(index);
@@ -125,7 +96,20 @@ export default function Navigator(props) {
                   component={Link}
                   to={route}
                   selected={props.selectedIndex === index}
-                  onClick={(event) => handleListItemClick(event, index)}
+                  onClick={(event) => {
+                    handleListItemClick(event, index);
+                    props.btnSound();
+                    toast.success(`${childId}`, {
+                      theme: "colored",
+                      position: "bottom-left",
+                      autoClose: 300,
+                      hideProgressBar: true,
+                      closeOnClick: true,
+                      pauseOnHover: false,
+                      draggable: false,
+                      progress: undefined,
+                    });
+                  }}
                   sx={item}
                 >
                   <ListItemIcon>{icon}</ListItemIcon>

@@ -9,7 +9,9 @@ import Link from "@mui/material/Link";
 import Navigator from "./Navigator";
 import Content from "./Content";
 import Header from "./Header";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import TypeWriterEffect from "react-typewriter-effect";
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -21,6 +23,16 @@ function Copyright() {
     </Typography>
   );
 }
+
+const drawerSound = () => {
+  let drawerAudio = new Audio("/sounds/slide.mp3");
+  drawerAudio.play();
+};
+
+const btnSound = () => {
+  let btnAudio = new Audio("/sounds/buttonClick.mp3");
+  btnAudio.play();
+};
 
 let theme = createTheme({
   palette: {
@@ -167,6 +179,19 @@ theme = {
 
 const drawerWidth = 256;
 
+const toastFxn = (route) => {
+  toast.success(`${route}`, {
+    theme: "colored",
+    position: "bottom-left",
+    autoClose: 300,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: false,
+    progress: undefined,
+  });
+};
+
 export default function Paperbase() {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -176,23 +201,23 @@ export default function Paperbase() {
     console.log(location.pathname);
     switch (location.pathname) {
       case "/":
-        console.log("you're in home");
+        toastFxn("HOME");
         setSelectedIndex(0);
         break;
       case "/projects":
-        console.log("you're in home");
+        toastFxn("PROJECTS");
         setSelectedIndex(1);
         break;
       case "/resume":
-        console.log("you're in home");
+        toastFxn("RESUME");
         setSelectedIndex(2);
         break;
       case "/contact":
-        console.log("you're in home");
+        toastFxn("CONTACT");
         setSelectedIndex(3);
         break;
       case "/login":
-        console.log("you're in home");
+        toastFxn("LOGIN!");
         setSelectedIndex(4);
         break;
       default:
@@ -201,6 +226,7 @@ export default function Paperbase() {
   }, []);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
+    drawerSound();
   };
 
   return (
@@ -219,6 +245,7 @@ export default function Paperbase() {
               onClose={handleDrawerToggle}
               selectedIndex={selectedIndex}
               setSelectedIndex={setSelectedIndex}
+              btnSound={btnSound}
             />
           )}
 
@@ -227,6 +254,7 @@ export default function Paperbase() {
             sx={{ display: { sm: "block", xs: "none" } }}
             selectedIndex={selectedIndex}
             setSelectedIndex={setSelectedIndex}
+            btnSound={btnSound}
           />
         </Box>
         <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
@@ -235,13 +263,14 @@ export default function Paperbase() {
             component="main"
             sx={{ flex: 1, py: 6, px: 4, bgcolor: "#eaeff1" }}
           >
-            <Content setSelectedIndex={setSelectedIndex} />
+            <Content setSelectedIndex={setSelectedIndex} btnSound={btnSound} />
           </Box>
           <Box component="footer" sx={{ p: 2, bgcolor: "#eaeff1" }}>
             <Copyright />
           </Box>
         </Box>
       </Box>
+      <ToastContainer />
     </ThemeProvider>
   );
 }

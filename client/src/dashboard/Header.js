@@ -36,19 +36,6 @@ function Header(props) {
               </IconButton>
             </Grid>
             <Grid item xs />
-            {/* 
-            <Grid item>
-              <Tooltip title="Alerts • No alerts">
-                <IconButton color="inherit">
-                  <NotificationsIcon />
-                </IconButton>
-              </Tooltip>
-            </Grid> */}
-            <Grid item>
-              <IconButton color="inherit" sx={{ p: 0.5 }}>
-                <Avatar src="" alt="My Avatar" />
-              </IconButton>
-            </Grid>
           </Grid>
         </Toolbar>
       </AppBar>
@@ -65,10 +52,10 @@ function Header(props) {
               <Typography
                 align="center"
                 color="inherit"
-                variant="h5"
+                variant="h6"
                 component="h1"
               >
-                Welcome to my porfolio site!
+                Welcome to My Portfolio Site!
               </Typography>
             </Grid>
           </Grid>

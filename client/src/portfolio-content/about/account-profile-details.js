@@ -16,7 +16,7 @@ export const AccountProfileDetails = (props) => {
     <Card>
       <CardHeader
         sx={{ justifyContent: "center" }}
-        subheader="A Chemical Engineer graduate who has transitioned into Software Engineering"
+        subheader="A chemical engineering graduate who is transitioning into software engineering"
         title="Fullstack Developer"
       />
       <Divider />
@@ -27,8 +27,8 @@ export const AccountProfileDetails = (props) => {
               I am a passionate and highly motivated full stack developer with
               experience using frontend and backend technologies such as
               JavaScript, ReactJS, Bootstrap, Material-UI, Node, Ruby, Sinatra,
-              and Rails. I am committed to writing clean, readable and scalable
-              code!<br></br>
+              and Rails. I love to build new projects and debugging. I am also
+              committed to writing clean, readable and scalable code!<br></br>
               <br></br>I graduated from New York University, where I received my
               bachelor’s degree in chemical engineering and immersed myself in
               mathematics, physics and engineering. I found my love for coding
@@ -57,6 +57,7 @@ export const AccountProfileDetails = (props) => {
           color="primary"
           variant="contained"
           onClick={() => {
+            props.btnSound();
             props.setSelectedIndex(1);
           }}
         >
