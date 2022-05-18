@@ -14,7 +14,8 @@ import Tabs from "@mui/material/Tabs";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
-
+import TypeWriterEffect from "react-typewriter-effect";
+import "./Header.css";
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
 function Header(props) {
@@ -35,11 +36,22 @@ function Header(props) {
                 <MenuIcon />
               </IconButton>
             </Grid>
-            <Grid item xs />
+            <Grid container alignItems="center" spacing={1}>
+              <Grid item xs>
+                <Typography
+                  align="center"
+                  color="inherit"
+                  variant="h6"
+                  component="h1"
+                >
+                  Welcome to My Portfolio Site!
+                </Typography>
+              </Grid>
+            </Grid>
           </Grid>
         </Toolbar>
       </AppBar>
-      <AppBar
+      {/* <AppBar
         component="div"
         color="primary"
         position="static"
@@ -66,7 +78,7 @@ function Header(props) {
         position="static"
         elevation={0}
         sx={{ zIndex: 1 }}
-      ></AppBar>
+      ></AppBar> */}
     </React.Fragment>
   );
 }

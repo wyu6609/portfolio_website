@@ -37,9 +37,9 @@ const btnSound = () => {
 let theme = createTheme({
   palette: {
     primary: {
-      light: "#63ccff",
-      main: "#009be5",
-      dark: "#006db3",
+      light: "#6c65e9",
+      main: "#5048e5",
+      dark: "#6c65e9",
     },
   },
   typography: {
@@ -72,7 +72,7 @@ theme = {
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          backgroundColor: "#081627",
+          backgroundColor: "#111827",
         },
       },
     },
@@ -141,7 +141,7 @@ theme = {
       styleOverrides: {
         root: {
           "&.Mui-selected": {
-            color: "#4fc3f7",
+            color: "#5048e4",
           },
         },
       },

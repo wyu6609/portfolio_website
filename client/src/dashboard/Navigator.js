@@ -72,7 +72,7 @@ export default function Navigator(props) {
     props.setSelectedIndex(index);
   };
   return (
-    <Drawer variant="permanent" {...other}>
+    <Drawer elevation={10} variant="permanent" {...other}>
       <List sx={{ mt: 4 }} disablePadding>
         <ListItem
           sx={{
